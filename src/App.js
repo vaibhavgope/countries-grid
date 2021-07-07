@@ -1,42 +1,71 @@
 import './App.css';
-import React from 'react'
+import React, { useState } from 'react'
 import { ThemeProvider, createTheme, CssBaseline } from '@material-ui/core';
 import NavBar from './components/NavBar';
 import FlagGrid from './components/FlagGrid';
 import CountryPage from './components/CountryPage';
 import { Route, Switch } from 'react-router-dom';
-
-
-const theme = createTheme({
-  typography: {
-    allVariants: {
-      color: 'hsl(200, 15%, 8%)'
-    },
-    fontFamily: 'Nunito Sans, sans-serif'
-  },
-  pallete: {
-    text: {
-      primary: 'hsl(200, 15%, 8%)',
-      secondary: 'hsl(0, 0%, 98%)',
-    }
-  },
-  overrides: {
-    MuiCssBaseline: {
-      '@global': {
-        body: {
-          backgroundColor: 'hsl(0, 0%, 98%)',
-        },
-      },
-    },
-  },
-});
+import { purple } from '@material-ui/core/colors';
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
+  const theme = createTheme({
+    typography: {
+      allVariants: {
+        color: 'hsl(200, 15%, 8%)'
+      },
+      fontFamily: 'Nunito Sans, sans-serif'
+    },
+    palette: {
+      primary: {
+        main: 'hsl(0, 0%, 100%)',
+      },
+      secondary: {
+        main: 'hsl(0, 0%, 52%)',
+      },
+      text: {
+        primary: 'hsl(200, 15%, 8%)',
+        secondary: 'hsl(0, 0%, 98%)',
+      },
+      background: {
+        default: 'hsl(0, 0%, 98%)',
+      },
+      type: darkMode ? 'dark' : 'light',
+    },
+  });
+  const darkTheme = createTheme({
+    typography: {
+      allVariants: {
+        color: 'hsl(0, 0%, 100%)'
+      },
+      fontFamily: 'Nunito Sans, sans-serif'
+    },
+    palette: {
+      primary: {
+        main: 'hsl(209, 23%, 22%)',
+      },
+      secondary: {
+        main: 'hsl(209, 33%, 15%)',
+      },
+      text: {
+        primary: 'hsl(0, 0%, 100%)',
+        secondary: 'hsl(0, 0%, 98%)',
+      },
+      background: {
+        default: 'hsl(207, 26%, 17%)',
+      },
+      type: darkMode ? 'dark' : 'light',
+    },
+  });
+
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={darkMode ? darkTheme : theme}>
         <CssBaseline />
-        <NavBar />
+        <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Switch>
           <Route exact path='/'>
             <FlagGrid />

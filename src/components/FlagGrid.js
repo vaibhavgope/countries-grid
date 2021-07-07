@@ -5,6 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import SearchBar from './SearchBar';
 import { Link, withRouter } from "react-router-dom";
 import SelectRegion from './SelectRegion';
+import { purple } from '@material-ui/core/colors';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,6 +19,7 @@ const useStyles = makeStyles((theme) => ({
         color: theme.palette.text.primary,
         marginTop: 30,
         minHeight: '100%',
+        backgroundColor: theme.palette.primary.main
     },
     flag: {
         minWidth: '90%',

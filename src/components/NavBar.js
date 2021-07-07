@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
+import Switch from '@material-ui/core/Switch';
+import WbSunnyIcon from '@material-ui/icons/WbSunny';
+import Brightness3Icon from '@material-ui/icons/Brightness3';
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
@@ -12,17 +14,18 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
         flexGrow: 1,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        color: theme.palette.text.primary,
     },
     bar: {
-        backgroundColor: 'white',
+        backgroundColor: theme.palette.primary.main,
         color: theme.palette.text.primary,
         display: 'flex',
         justifyContent: 'space-between'
     }
 }));
 
-const NavBar = () => {
+const NavBar = (props) => {
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -33,7 +36,7 @@ const NavBar = () => {
                             Where in the world?
                         </Typography>
                     </Link>
-                    <Button color="inherit">Dark mode</Button>
+                    <Switch checked={props.darkMode} icon={<WbSunnyIcon style={{ fill: 'orange' }} />} checkedIcon={<Brightness3Icon style={{ fill: 'white' }} />} onChange={props.toggleDarkMode} color='secondary' />
                 </Toolbar>
             </AppBar>
         </div>
