@@ -8,6 +8,14 @@ import WbSunnyIcon from '@material-ui/icons/WbSunny';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import { Link } from "react-router-dom";
 
+ /*
+    NOTE: Don't mix styles with component code
+    1. Move the component to a folder, src/components/NavBar
+    2. Move styles to src/components/NavBar.css file
+    3. Now, import it here and use it.
+
+    Nb: Do the same for all other components
+*/
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
