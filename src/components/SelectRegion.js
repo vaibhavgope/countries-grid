@@ -17,24 +17,30 @@ const useStyles = makeStyles((theme) => ({
 const SelectRegion = (props) => {
     const classes = useStyles();
     return (
-        <div>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="simple-select-label">Filter by region</InputLabel>
-                <Select
-                    labelId="simple-select-label"
-                    id="simple-select"
-                    value={props.region}
-                    onChange={props.handleChange}
-                >
-                    <MenuItem value={'americas'}>Americas</MenuItem>
-                    <MenuItem value={'africa'}>Africa</MenuItem>
-                    <MenuItem value={'asia'}>Asia</MenuItem>
-                    <MenuItem value={'europe'}>Europe</MenuItem>
-                    <MenuItem value={'oceania'}>Oceania</MenuItem>
-                </Select>
-            </FormControl>
-        </div>
-    )
+      <div>
+        <FormControl className={classes.formControl}>
+          <InputLabel id="simple-select-label">Filter by region</InputLabel>
+          <Select
+            labelId="simple-select-label"
+            id="simple-select"
+            value={props.region}
+            onChange={props.handleChange}
+          >
+            {/* 
+                NOTE: Don’t Repeat Yourself (DRY) !
+                1. Create an array with the region values in src/config/config.js
+                2. Import the above config array
+                3. Use map() to iteratively render the repeated MenuItem component. 
+            */}
+            <MenuItem value={"americas"}>Americas</MenuItem>
+            <MenuItem value={"africa"}>Africa</MenuItem>
+            <MenuItem value={"asia"}>Asia</MenuItem>
+            <MenuItem value={"europe"}>Europe</MenuItem>
+            <MenuItem value={"oceania"}>Oceania</MenuItem>
+          </Select>
+        </FormControl>
+      </div>
+    );
 }
 
 export default SelectRegion

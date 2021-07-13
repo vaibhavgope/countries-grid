@@ -10,54 +10,59 @@ import { purple } from '@material-ui/core/colors';
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode)
-  }
+    setDarkMode(!darkMode);
+  };
+  /*
+    NOTE: Don't mix styles with component code
+    1. Create a separate src/themes/global.js file for defining custom generated themes. 
+    2. Now, import it in App.js and use it.
+  */
   const theme = createTheme({
     typography: {
       allVariants: {
-        color: 'hsl(200, 15%, 8%)'
+        color: "hsl(200, 15%, 8%)",
       },
-      fontFamily: 'Nunito Sans, sans-serif'
+      fontFamily: "Nunito Sans, sans-serif",
     },
     palette: {
       primary: {
-        main: 'hsl(0, 0%, 100%)',
+        main: "hsl(0, 0%, 100%)",
       },
       secondary: {
-        main: 'hsl(0, 0%, 52%)',
+        main: "hsl(0, 0%, 52%)",
       },
       text: {
-        primary: 'hsl(200, 15%, 8%)',
-        secondary: 'hsl(0, 0%, 98%)',
+        primary: "hsl(200, 15%, 8%)",
+        secondary: "hsl(0, 0%, 98%)",
       },
       background: {
-        default: 'hsl(0, 0%, 98%)',
+        default: "hsl(0, 0%, 98%)",
       },
-      type: darkMode ? 'dark' : 'light',
+      type: darkMode ? "dark" : "light",
     },
   });
   const darkTheme = createTheme({
     typography: {
       allVariants: {
-        color: 'hsl(0, 0%, 100%)'
+        color: "hsl(0, 0%, 100%)",
       },
-      fontFamily: 'Nunito Sans, sans-serif'
+      fontFamily: "Nunito Sans, sans-serif",
     },
     palette: {
       primary: {
-        main: 'hsl(209, 23%, 22%)',
+        main: "hsl(209, 23%, 22%)",
       },
       secondary: {
-        main: 'hsl(209, 33%, 15%)',
+        main: "hsl(209, 33%, 15%)",
       },
       text: {
-        primary: 'hsl(0, 0%, 100%)',
-        secondary: 'hsl(0, 0%, 98%)',
+        primary: "hsl(0, 0%, 100%)",
+        secondary: "hsl(0, 0%, 98%)",
       },
       background: {
-        default: 'hsl(207, 26%, 17%)',
+        default: "hsl(207, 26%, 17%)",
       },
-      type: darkMode ? 'dark' : 'light',
+      type: darkMode ? "dark" : "light",
     },
   });
 
@@ -67,10 +72,10 @@ function App() {
         <CssBaseline />
         <NavBar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
         <Switch>
-          <Route exact path='/'>
+          <Route exact path="/">
             <FlagGrid />
           </Route>
-          <Route exact path='/countries/:code'>
+          <Route exact path="/countries/:code">
             <CountryPage />
           </Route>
         </Switch>
