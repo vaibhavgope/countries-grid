@@ -20,7 +20,7 @@ const CountryPage = (props) => {
         <Button
           variant="contained"
           color='primary'
-          style={{ marginBottom: 10 }}
+          style={{ margin: 10 }}
           startIcon={<ArrowBackIcon />}
         >
           Back
@@ -58,7 +58,7 @@ const CountryPage = (props) => {
           </Grid>
         </Grid>
       ) : (
-        <CircularProgress color='inherit' style={{ margin: '20vh auto 0' }} />
+        <CircularProgress color='inherit' style={{ margin: '20vh auto 0', position: 'absolute' }} />
       )}
     </div>
   );

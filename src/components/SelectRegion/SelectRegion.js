@@ -11,7 +11,7 @@ const SelectRegion = (props) => {
     return (
       <div>
         <FormControl className={classes.formControl}>
-          <InputLabel id="simple-select-label">Select Region</InputLabel>
+          <InputLabel id="simple-select-label" style={{marginTop: 5}}>Select Region</InputLabel>
           <Select
             labelId="simple-select-label"
             id="simple-select"
